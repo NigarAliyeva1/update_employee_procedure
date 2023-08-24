@@ -4,6 +4,7 @@ begin
     select commission_pct into v_commission_pct from employees where employee_id=p_employee_id;
     p_increased_commission_pct:=v_commission_pct+0.2;
     update employees set commission_pct=p_increased_commission_pct  where employee_id=p_employee_id;
+    commit;
 exception
    
      when no_data_found then
